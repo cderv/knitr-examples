@@ -1,6 +1,8 @@
 \documentclass{beamer}
 \begin{document}
-<<setup, include=FALSE>>=
+<<>>=
+#| label: setup
+#| include: false
 library(knitr)
 # smaller font size for chunks
 opts_chunk$set(size = 'footnotesize')
@@ -27,7 +29,12 @@ The question came from \url{http://r.789695.n4.nabble.com/plots-for-presentation
 \begin{frame}[fragile]
 We will add ``\textbackslash{}only'' to the plots so they show up one by one.
 
-<<boring-plots, out.width='.5\\linewidth', fig.show='hold', fig.keep='all', fig.align='center'>>=
+<<>>=
+#| label: boring-plots
+#| out.width: .5\linewidth
+#| fig.show: hold
+#| fig.keep: all
+#| fig.align: center
 par(mar = c(4, 4, .1, .1))
 x = rnorm(100)
 hist(x, main='')

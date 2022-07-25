@@ -4,7 +4,12 @@
 
 This demo shows you how to use the Palatino font in the Cairo PDF device.
 
-<<dev-args, dev='cairo_pdf', dev.args=list(family='Palatino'), fig.width=4.5, fig.height=3>>=
+<<>>=
+#| label: dev-args
+#| dev: cairo_pdf
+#| dev.args: !expr list(family = "Palatino")
+#| fig.width: 4.5
+#| fig.height: 3.0
 plot(1, main='Hello, Palatino', xlab='This is x-axis', ylab='This is y-axis')
 @
 

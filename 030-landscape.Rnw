@@ -9,7 +9,8 @@ hello world
 \newpage
 \begin{landscape}
 \begin{table}\centering
-<<results='asis'>>=
+<<>>=
+#| results: asis
 library(knitr)
 kable(head(iris))
 @
@@ -19,7 +20,10 @@ kable(head(iris))
 
 hello again
 
-<<results='asis', message=FALSE, warning=FALSE>>=
+<<>>=
+#| results: asis
+#| message: false
+#| warning: false
 library(Hmisc)
 latex(head(iris), file='', landscape=TRUE)
 @

@@ -1,6 +1,8 @@
 # Asymptote graphics example
 
-```{r setup, include=FALSE}
+```{r}
+#| label: setup
+#| include: false
 library(knitr)
 opts_chunk$set(cache=TRUE)
 ```
@@ -22,7 +24,11 @@ Please have a look at the online [gallery](http://asymptote.sourceforge.net/gall
 An example of the asy-engine:
 
 
-```{r asy-simple-ex, engine = "asy", fig.cap = "Asymptote Example", fig.ext = 'svg'}
+```{r}
+#| label: asy-simple-ex
+#| engine: asy
+#| fig.cap: Asymptote Example
+#| fig.ext: svg
 real u = 40;
 // just a comment
 draw( (0,0) .. (u,u) .. (u,0) -- (0,0) );
@@ -32,7 +38,11 @@ draw( (0,0) .. (u,u) .. (u,0) -- (0,0) );
 ## 3D example
 
 
-```{r asy-3d-ex, engine = "asy", fig.cap = "Asymptote 3D Example", fig.ext = 'png'}
+```{r}
+#| label: asy-3d-ex
+#| engine: asy
+#| fig.cap: Asymptote 3D Example
+#| fig.ext: png
 import graph3;
 import palette;
 
@@ -61,7 +71,11 @@ y = sin(x)
 write.table(data.frame(x,y),file='asy.csv',col.names=FALSE,row.names=FALSE,sep=',')
 ```
 
-```{r asy-ex, engine = "asy", fig.cap = "Asymptote Example", fig.ext = 'svg'}
+```{r}
+#| label: asy-ex
+#| engine: asy
+#| fig.cap: Asymptote Example
+#| fig.ext: svg
 import graph;
 size(200,150,IgnoreAspect);
 
@@ -85,6 +99,8 @@ xaxis("$x$",BottomTop,LeftTicks);
 yaxis("$y$",LeftRight,RightTicks);
 ```
 
-```{r clean-up, include=FALSE}
+```{r}
+#| label: clean-up
+#| include: false
 file.remove('asy.csv')
 ```

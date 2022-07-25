@@ -2,7 +2,8 @@
 \newif\ifmyboolean
 \begin{document}
 
-<<setup>>=
+<<>>=
+#| label: setup
 myboolean='true' # or set it to 'false'
 @
 % assign true or false to myboolean

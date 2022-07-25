@@ -4,7 +4,8 @@
 
 We want the file extension when including a figure into LaTeX.
 
-<<setup>>=
+<<>>=
+#| label: setup
 library(knitr)
 hook_plot = knit_hooks$get('plot')
 knit_hooks$set(plot = function(x, options) {
@@ -16,12 +17,15 @@ knit_hooks$set(plot = function(x, options) {
 
 You should see \textbackslash{}includegraphics\{test.pdf\} instead of \textbackslash{}includegraphics\{test\}.
 
-<<test-a>>=
+<<>>=
+#| label: test-a
 # pdf figure
 plot(1)
 @
 
-<<test-b, dev='png'>>=
+<<>>=
+#| label: test-b
+#| dev: png
 # png figure
 plot(2)
 @

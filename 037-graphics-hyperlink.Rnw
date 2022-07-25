@@ -4,7 +4,9 @@
 \usepackage{tikz,hyperref}
 
 \begin{document}
-<<setup, include=FALSE>>=
+<<>>=
+#| label: setup
+#| include: false
 ## important to add \usepackage{hyperref} to metric packages!
 options(tikzMetricPackages = c("\\usepackage[utf8]{inputenc}",
    "\\usepackage[T1]{fontenc}", "\\usetikzlibrary{calc}", "\\usepackage{hyperref}"))
@@ -15,7 +17,9 @@ opts_chunk$set(external = FALSE, cache = TRUE, fig.width = 5)
 
 Create link texts in the data:
 
-<<pltPreparation, tidy.opts=list(width.cutoff=50)>>=
+<<>>=
+#| label: pltPreparation
+#| tidy.opts: !expr list(width.cutoff = 50)
   library(lattice)
   data(iris)
   iris$hyperlink    <- paste("\\hyperlink{",iris$Species,"}{",iris$Species,"}", sep = '')
@@ -24,11 +28,15 @@ Create link texts in the data:
 
 Draw these texts in plots (you can click on the labels):
 
-<<pltFacet, dev = 'tikz'>>=
+<<>>=
+#| label: pltFacet
+#| dev: tikz
   xyplot(Sepal.Length~Sepal.Width|hyperlink, data = iris)
 @
 
-<<pltInd, dev = 'tikz'>>=
+<<>>=
+#| label: pltInd
+#| dev: tikz
   xyplot(Sepal.Length~Sepal.Width|hypertarget, data = iris, layout= c(1,1))
 @
 

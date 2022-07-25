@@ -8,7 +8,9 @@
 \begin{document}
 \maketitle
 
-<<setup, include=FALSE>>=
+<<>>=
+#| label: setup
+#| include: false
 library(knitr)
 knit_hooks$set(rexample = function(before, options, envir) {
   if (before) sprintf('\\begin{rexample}\\label{%s}\\hfill{}', options$label) else '\\end{rexample}'
@@ -21,7 +23,9 @@ This is a test of the R Example environment.
 
 \subsection{Go!}
 
-<<test-a, rexample=TRUE>>=
+<<>>=
+#| label: test-a
+#| rexample: true
 1+1
 @
 
@@ -29,13 +33,17 @@ Look at Example \ref{test-a}!
 
 \subsection{Ha!}
 
-<<test-b, rexample=TRUE>>=
+<<>>=
+#| label: test-b
+#| rexample: true
 x=rnorm(10)
 @
 
 Move on!
 
-<<test-c, rexample=TRUE>>=
+<<>>=
+#| label: test-c
+#| rexample: true
 sd(x) # standard deviation
 @
 

@@ -6,7 +6,9 @@
 This example shows you how to separate the source and output boxes by injecting
 the \texttt{kframe} environments between them.
 
-<<setup, tidy=FALSE>>=
+<<>>=
+#| label: setup
+#| tidy: false
 library(knitr)
 # modify the default chunk hook
 hook_chunk = knit_hooks$get('chunk')
@@ -22,7 +24,8 @@ It is a hackish solution...
 
 
 \begin{frame}[fragile]
-<<test>>=
+<<>>=
+#| label: test
 summary(cars)
 @
 \end{frame}

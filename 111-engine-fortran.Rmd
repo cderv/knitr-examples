@@ -9,7 +9,10 @@ output: html_document
 
 Does it work?
 
-```{r compfort, engine='fortran', results='hide'}
+```{r}
+#| label: compfort
+#| engine: fortran
+#| results: hide
 C Fortran test
       subroutine fexp(n, x)
       double precision x
@@ -25,7 +28,9 @@ C  input value
 
 Now try running it.
 
-```{r testfort, collapse=TRUE}
+```{r}
+#| label: testfort
+#| collapse: true
 res = .Fortran("fexp", n=100000L, x=0)
 str(res)
 ```

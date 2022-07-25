@@ -13,7 +13,10 @@ This is a normal slide.
 % need the option [fragile] for code output!
 \begin{frame}[fragile]
 \frametitle{Code chunks}
-<<test, out.width='.6\\linewidth', fig.align='center'>>=
+<<>>=
+#| label: test
+#| out.width: .6\linewidth
+#| fig.align: center
 par(mar = c(4, 4, .1, .1))
 x = rnorm(100)
 hist(x, main='', col='lightblue', border='white')

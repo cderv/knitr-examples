@@ -7,7 +7,9 @@
 
 \maketitle
 
-<<setup, include=FALSE>>=
+<<>>=
+#| label: setup
+#| include: false
 options(width = 65)
 library(knitr)
 # smaller font size for chunks
@@ -16,7 +18,8 @@ opts_chunk$set(size = 'footnotesize', background='white', cache=TRUE)
 
 \begin{frame}[fragile]
 \frametitle{A frame with the fragile option}
-<<boring-random>>=
+<<>>=
+#| label: boring-random
 set.seed(1121)
 (x=rnorm(20))
 mean(x);var(x)
@@ -24,7 +27,13 @@ mean(x);var(x)
 \end{frame}
 
 \begin{frame}
-<<boring-plots, echo=FALSE, dev='tikz', fig.width=4.4, fig.height=3.3, out.width='.9\\paperwidth'>>=
+<<>>=
+#| label: boring-plots
+#| echo: false
+#| dev: tikz
+#| fig.width: 4.4
+#| fig.height: 3.3
+#| out.width: .9\paperwidth
 par(mar = c(4.5, 4, .1, .1))
 hist(x, main='', xlab='$x$ (how the fonts look like here?)',
   ylab='$\\hat{f}(x) = \\frac{1}{nh}\\sum_{i=1}^n \\cdots$')

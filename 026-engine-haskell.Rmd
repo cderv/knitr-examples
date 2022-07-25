@@ -2,7 +2,11 @@ Does Haskell work with **knitr**?
 
 Note we have to specify the compiler manually, e.g. `engine.path='ghc'` (`haskell` itself may not exist as an executable program).
 
-```{r test-haskell, engine='haskell', engine.path='ghc', cache=TRUE}
+```{r}
+#| label: test-haskell
+#| engine: haskell
+#| engine.path: ghc
+#| cache: true
 [x | x <- [1..10], odd x]
 ```
 

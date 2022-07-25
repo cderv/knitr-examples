@@ -2,7 +2,9 @@
 
 \begin{document}
 
-<<setup, cache=FALSE>>=
+<<>>=
+#| label: setup
+#| cache: false
 library(knitr)
 # global chunk options
 opts_chunk$set(cache=TRUE, autodep=TRUE)
@@ -10,7 +12,8 @@ opts_chunk$set(cache=TRUE, autodep=TRUE)
 
 We create a new global object \texttt{x} in the first chunk (a):
 
-<<a>>=
+<<>>=
+#| label: a
 x = 5
 @
 
@@ -18,7 +21,8 @@ Then we print it in the second chunk (b). Because we have set the global chunk o
 \texttt{autodep = TRUE} in the first chunk, \textbf{knitr} should be able to
 figure out that chunk b depends on chunk a.
 
-<<b>>=
+<<>>=
+#| label: b
 (y = x + 2)
 @
 

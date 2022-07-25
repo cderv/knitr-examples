@@ -2,20 +2,24 @@
 title: "Knit SQL Demo"
 ---
 
-```{r message=FALSE}
+```{r}
+#| message: false
 library(DBI)
 db <- dbConnect(RSQLite::SQLite(), dbname = ":memory:")
 ```
 
-```{sql, connection=db}
+```{sql}
+--| connection: !expr db
 DROP TABLE IF EXISTS packages
 ```
 
-```{sql, connection=db}
+```{sql}
+--| connection: !expr db
 CREATE TABLE packages (id INTEGER, name TEXT)
 ```
 
-```{sql, connection=db}
+```{sql}
+--| connection: !expr db
 INSERT INTO 
   packages 
 VALUES 
@@ -24,7 +28,8 @@ VALUES
   (3, 'haven')
 ```
 
-```{sql connection=db}
+```{sql}
+--| connection: !expr db
 SELECT * FROM packages
 ```
 
@@ -36,7 +41,9 @@ Engine can substitute named placeholders in sql that start with `?`.
 
 Note that if you don't provide `params` as option values will be evaluated from environment
 
-```{sql, connection=db, output.var="readrPackage"}
+```{sql}
+--| connection: !expr db
+--| output.var: readrPackage
 SELECT 
   * 
 FROM 
@@ -51,11 +58,15 @@ readrPackage
 
 To use parameterised queries with native database support provide `params` in the options of the chunk.
 
-```{r setup-parameters}
+```{r}
+#| label: setup-parameters
 parameters <- list(package = packageReadR)
 ```
 
-```{sql, connection=db, output.var="readrPackage", params=parameters}
+```{sql}
+--| connection: !expr db
+--| output.var: readrPackage
+--| params: !expr parameters
 SELECT 
   * 
 FROM
@@ -68,11 +79,14 @@ WHERE
 readrPackage
 ``` 
 
-```{sql, connection=db}
+```{sql}
+--| connection: !expr db
 DROP TABLE IF EXISTS packages
 ```
 
-```{sql, connection=db, error = TRUE}
+```{sql}
+--| connection: !expr db
+--| error: true
 SELECT * FROM packages
 ```
 

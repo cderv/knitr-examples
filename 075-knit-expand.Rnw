@@ -8,7 +8,9 @@
 
 \section{Write one row of data}
 Only the first two sections are evaluated.
-<<run-all, include=FALSE>>=
+<<>>=
+#| label: run-all
+#| include: false
 library(knitr)
 src = NULL
 for (i in 1:5) src = c(src, knit_expand('075-template.rnw'))
@@ -20,7 +22,9 @@ for (i in 1:5) src = c(src, knit_expand('075-template.rnw'))
 
 You can expand a template file, or just provide the template as a character string.
 
-<<lm-mtcars, tidy.opts=list(width.cutoff=55)>>=
+<<>>=
+#| label: lm-mtcars
+#| tidy.opts: !expr list(width.cutoff = 55)
 # the template
 tpl = c("\\subsection{Regression on {{xvar}}}",
         "<<lm-{{xvar}}>>=",
@@ -33,7 +37,8 @@ src = lapply(names(mtcars)[-1], function(xvar) {knit_expand(text = tpl)})
 \Sexpr{knit(text = unlist(src))}
 
 \section{Multiple variables}
-<<multiple-tpl>>=
+<<>>=
+#| label: multiple-tpl
 tpl = 'The value of a is {{a}} and b is {{b}}.'
 @
 

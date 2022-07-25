@@ -1,5 +1,6 @@
 Hello package!
-```{go eval=FALSE}
+```{go}
+//| eval: false
 package hello 
 
 func HelloWorld(){
@@ -17,7 +18,8 @@ func main(){
 ```
 
 Or specify an engine:
-```{r engine='go'}
+```{r}
+#| engine: go
 package main
 
 func main(){

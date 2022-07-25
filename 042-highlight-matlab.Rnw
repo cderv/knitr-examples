@@ -1,5 +1,7 @@
 \documentclass{article}
-<<adjust-preamble, include=FALSE>>=
+<<>>=
+#| label: adjust-preamble
+#| include: false
 library(knitr)
 knit_theme$set('solarized-dark')
 @
@@ -8,7 +10,8 @@ knit_theme$set('solarized-dark')
 
 Normal R chunks.
 
-<<test-R>>=
+<<>>=
+#| label: test-R
 1+1
 x=rnorm(5)
 @
@@ -18,7 +21,10 @@ Highlight matlab chunks. Note you need to install highlight from \url{http://www
 \noindent\verb|<<engine='highlight', engine.path = 'full/path/to/highlight'>>=|
 
 
-<<highlight, engine='highlight', engine.opts='-S matlab -O latex'>>=
+<<>>=
+#| label: highlight
+#| engine: highlight
+#| engine.opts: -S matlab -O latex
 function Y = kalmanM(pos)
   dt=1;
   %% Initialize state transition matrix

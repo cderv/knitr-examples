@@ -7,7 +7,9 @@ The syntax for defining code blocks is similar to that of HTML or AsciiDoc.
  You just use @###.@ followed by @begin.rcode@ or @end.rcode@, and then
  additional options like a name for the chunk and figure settings.
 
-###. begin.rcode test-a, tidy=FALSE
+###. begin.rcode 
+#| label: test-a
+#| tidy: false
 if (1 + 1 == 2) {
   'of course!'
 }
@@ -15,7 +17,10 @@ if (1 + 1 == 2) {
 
 Some other examples:
 
-###. begin.rcode test-b, fig.height=5, fig.cap='A random walk.'
+###. begin.rcode 
+#| label: test-b
+#| fig.height: 5.0
+#| fig.cap: A random walk.
 x = cumsum(rnorm(100))
 mean(x)
 plot(x, pch = 20, type = 'o', col = 'red')

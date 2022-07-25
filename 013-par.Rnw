@@ -1,7 +1,8 @@
 \documentclass{article}
 \begin{document}
 
-<<setup>>=
+<<>>=
+#| label: setup
 library(knitr)
 knit_hooks$set(pars = function(before, options, envir) {
   if (before) do.call(graphics::par, options$pars)
@@ -11,7 +12,9 @@ knit_hooks$set(pars = function(before, options, envir) {
 Then this function will be called for a chunk like this:
 
 % pass a list of graphics parameters to par()
-<<myplot, pars=list(mar = c(4, 4, .1, .1))>>=
+<<>>=
+#| label: myplot
+#| pars: !expr list(mar = c(4, 4, 0.1, 0.1))
 hist(rnorm(100), main = '')  # no main title
 @
 

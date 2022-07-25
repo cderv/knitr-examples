@@ -4,14 +4,18 @@
 \maketitle
 \tableofcontents
 
-<<setup, include=FALSE>>=
+<<>>=
+#| label: setup
+#| include: false
 library(knitr)
 # cache chunks and do not tidy ggplot2 examples code
 opts_chunk$set(tidy = FALSE, cache = TRUE)
 @
 
 % the first 10 geoms in ggplot2
-<<write-examples, include=FALSE>>=
+<<>>=
+#| label: write-examples
+#| include: false
 library(ggplot2)
 ex = lapply(head(apropos("^geom_"), 10), function(g) {
   p = utils:::index.search(g, find.package(), TRUE)

@@ -41,7 +41,8 @@ howdy howdy
 
 # Okay, some R code
 
-```{r linear-model}
+```{r}
+#| label: linear-model
 fit = lm(dist ~ speed, data = cars)
 b = coef(fit)  # coefficients
 summary(fit)
@@ -51,7 +52,9 @@ The code will be highlighted in all output formats.
 
 # And some pictures
 
-```{r lm-vis, fig.cap='Regression diagnostics'}
+```{r}
+#| label: lm-vis
+#| fig.cap: Regression diagnostics
 par(mfrow = c(2, 2), pch = 20, mar = c(4, 4, 2, .1), bg = 'white')
 plot(fit)
 ```

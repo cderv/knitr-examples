@@ -6,7 +6,9 @@ data(mtcars)
 
 This example shows how to generate chunk labels dynamically with the brew syntax. It was motivated by the SO question: http://stackoverflow.com/q/12095113/559676
 
-```{r create-iterator, include=FALSE}
+```{r}
+#| label: create-iterator
+#| include: false
 library(knitr)
 src = NULL
 pat_brew()  # use brew syntax first
@@ -24,6 +26,8 @@ out = knit(text = src)
 
 ## Generate report for each level of cylinder variable
 
-```{r results='asis', echo=FALSE}
+```{r}
+#| results: asis
+#| echo: false
 cat(out, sep = '\n')
 ```

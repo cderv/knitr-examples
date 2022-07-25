@@ -7,7 +7,10 @@ Sys.which('gcc')
 
 Does `engine = 'c'` work?
 
-```{r test-c, engine='c', results='hide'}
+```{r}
+#| label: test-c
+#| engine: c
+#| results: hide
 void square(double *x) {
   *x = *x * *x;
 }

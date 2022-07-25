@@ -8,7 +8,8 @@ Sys.setenv(EXAMPLES = 'example/path')
 
 Now we write a `bash` code chunk:
 
-```{r engine='bash'}
+```{r}
+#| engine: bash
 echo $EXAMPLES
 ```
 

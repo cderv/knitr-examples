@@ -5,7 +5,8 @@ This is a reStructuredText document. The input filename extension is ``Rrst``
 and the output filename will be ``rst``. Here is how we write R code in
 **knitr**:
 
-.. {r setup}
+.. {r }
+#| label: setup
 options(width = 75)
 library(knitr)
 # do not use the sourcecode directive
@@ -22,7 +23,8 @@ A code chunk begins with ``.. {r label, options}``, and ends with ``.. ..``
 (note the space in between). Optionally you can precede all R code with two
 dots, e.g.
 
-.. {r rst-example}
+.. {r }
+#| label: rst-example
 .. 1+1
 .. set.seed(123); rnorm(10)
 .. warning('do not forget the space after ..!')
@@ -30,7 +32,12 @@ dots, e.g.
 
 Here is a plot:
 
-.. {r rst-plot, out.width='360px', fig.cap='A ggplot2 example', message=FALSE, warning=FALSE}
+.. {r }
+#| label: rst-plot
+#| out.width: 360px
+#| fig.cap: A ggplot2 example
+#| message: false
+#| warning: false
 library(ggplot2)
 qplot(hp, mpg, data=mtcars) + geom_smooth()
 .. ..

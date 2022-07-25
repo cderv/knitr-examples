@@ -4,7 +4,9 @@
 \DefineVerbatimEnvironment{Soutput}{Verbatim}{formatcom=\color{gray}}
 
 \begin{document}
-<<setup, include=FALSE>>=
+<<>>=
+#| label: setup
+#| include: false
 library(knitr)
 render_sweave()
 @

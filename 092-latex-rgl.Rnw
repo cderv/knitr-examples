@@ -4,7 +4,8 @@
 
 A bug reported at \url{http://cos.name/cn/topic/110742}.
 
-<<rgl-demo>>=
+<<>>=
+#| label: rgl-demo
 library(knitr)
 library(rgl)
 knit_hooks$set(rgl = hook_rgl)
@@ -13,7 +14,14 @@ head(hook_rgl)  # the hook function is defined as this
 
 Then we only have to set the chunk option \texttt{rgl=TRUE}:
 
-<<fancy-rgl, rgl=TRUE, dev='png', out.width='3in', fig.align='center', fig.show='hold', warning=FALSE>>=
+<<>>=
+#| label: fancy-rgl
+#| rgl: true
+#| dev: png
+#| out.width: 3in
+#| fig.align: center
+#| fig.show: hold
+#| warning: false
 library(rgl)
 demo('bivar', package='rgl', echo=FALSE)
 par3d(zoom=.7)

@@ -11,7 +11,8 @@ document hook to post-process the LaTeX results.
 
 First we set up the document hook:
 
-<<setup>>=
+<<>>=
+#| label: setup
 library(knitr)
 knit_hooks$set(document = hook_movecode)
 @
@@ -21,7 +22,9 @@ Now we test a figure. You will see there is only a plot in Figure
 below right after this paragraph.
 
 \begin{figure}
-<<example-a, fig.height=4>>=
+<<>>=
+#| label: example-a
+#| fig.height: 4.0
 summary(cars)
 par(mar=c(4,4,.1,.1))
 plot(cars)
@@ -35,7 +38,9 @@ Similarly, you can work with tables; see Table \ref{tab:example-b}.
 \begin{table}
 \caption{A table caption here; again, you must label it.\label{tab:example-b}}
 
-<<example-b, results='asis'>>=
+<<>>=
+#| label: example-b
+#| results: asis
 library(knitr)
 kable(head(iris))
 @
@@ -50,7 +55,9 @@ will leave them as is; see Table \ref{tab:example-c}.
 % knitr_do_not_move
 \caption{This table environment must contain code.\label{tab:example-c}}
 
-<<example-c, results='asis'>>=
+<<>>=
+#| label: example-c
+#| results: asis
 library(knitr)
 kable(head(iris))
 @

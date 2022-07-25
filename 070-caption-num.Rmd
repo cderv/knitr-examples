@@ -1,6 +1,8 @@
 # Incremental Figure Numbers
 
-```{r setup, include=FALSE}
+```{r}
+#| label: setup
+#| include: false
 fn = local({
   i = 0
   function(x) {
@@ -10,10 +12,14 @@ fn = local({
 })
 ```
 
-```{r test-a, fig.cap=fn('this is one plot')}
+```{r}
+#| label: test-a
+#| fig.cap: !expr fn("this is one plot")
 plot(1:10)
 ```
 
-```{r test-b, fig.cap=fn('another plot')}
+```{r}
+#| label: test-b
+#| fig.cap: !expr fn("another plot")
 plot(rnorm(10))
 ```

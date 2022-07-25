@@ -1,11 +1,16 @@
 # Different cache levels
-```{r init, cache=0, echo=FALSE}
+```{r}
+#| label: init
+#| cache: 0.0
+#| echo: false
 # Work around issue #645 in knitr
 library(methods)
 ```
 `cache=FALSE` or `cache=0` means no cache:
 
-```{r test-cache-a, cache=0}
+```{r}
+#| label: test-cache-a
+#| cache: 0.0
 Sys.sleep(1)
 1 + 1
 plot(cars)
@@ -16,32 +21,47 @@ the code has been evaluated; all the output hooks will be applied every time
 the document is recompiled; note the plots are also saved as display lists,
 and will be redrawn every time the document is recompiled:
 
-```{r test-cache-b, cache=1, ref.label='test-cache-a'}
+```{r}
+#| label: test-cache-b
+#| cache: 1.0
+#| ref.label: test-cache-a
 ```
 
 `cache=2` is similar to `cache=1`, and the only difference is that the plots
 will not be redrawn, in which case you need to make sure you did not delete
 the figure files manually:
 
-```{r test-cache-c, cache=2, ref.label='test-cache-a'}
+```{r}
+#| label: test-cache-c
+#| cache: 2.0
+#| ref.label: test-cache-a
 ```
 
 `cache=TRUE` or `cache=3` means to cache the text output of a chunk; none of
 the output hooks will be called when the document is recompiled, and the
 plots will not be redrawn, either:
 
-```{r test-cache-d, cache=3, ref.label='test-cache-a'}
+```{r}
+#| label: test-cache-d
+#| cache: 3.0
+#| ref.label: test-cache-a
 ```
 
 Below is a test case for [#588](https://github.com/yihui/knitr/issues/588):
 
-```{r test-cache-e, cache=2, fig.width=30, fig.height=30}
+```{r}
+#| label: test-cache-e
+#| cache: 2.0
+#| fig.width: 30.0
+#| fig.height: 30.0
 pairs(matrix(rnorm(100), ncol=100), labels=1:100, pch='.')
 ```
 
 Another test case, with more plots:
 
-```{r test-cache-f, cache=2}
+```{r}
+#| label: test-cache-f
+#| cache: 2.0
 Sys.sleep(5)
 plot(1:10)
 abline(0, 1)

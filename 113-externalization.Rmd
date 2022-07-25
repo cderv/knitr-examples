@@ -2,13 +2,16 @@
 
 Write R code in external R scripts, and use `read_chunk()` to read them into the current document.
 
-```{r cache=FALSE}
+```{r}
+#| cache: false
 knitr::read_chunk('113-foo.R')
 ```
 
 The following two chunks are from the external R script `113-foo.R`:
 
-```{r test-a}
+```{r}
+#| label: test-a
 ```
-```{r test-b}
+```{r}
+#| label: test-b
 ```

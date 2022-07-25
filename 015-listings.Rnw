@@ -3,7 +3,9 @@
 
 This is all you need to do if you want to use the listings package:
 
-<<setup, include=FALSE>>=
+<<>>=
+#| label: setup
+#| include: false
 library(knitr)
 render_listings()
 @
@@ -11,7 +13,8 @@ render_listings()
 The quick brown fox jumps over the lazy dog the quick brown fox jumps over the
 lazy dog the quick brown fox jumps over the lazy dog.
 
-<<test>>=
+<<>>=
+#| label: test
 1+1
 rnorm(30)
 @

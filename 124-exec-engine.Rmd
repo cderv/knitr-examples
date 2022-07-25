@@ -36,23 +36,28 @@ with any executables.
 
 `command` can be the name of a command in PATH.
 
-```{exec, command='Rscript'}
+```{exec}
+#| command: Rscript
 1 + 1
 ```
 
-```{exec, command='python'}
+```{exec}
+#| command: python
 print(1 + 1)
 ```
 
 or a full path
 
-```{exec, command = Sys.which('python'), message = FALSE}
+```{exec}
+#| command: !expr Sys.which("python")
+#| message: false
 print("Full path command works")
 ```
 
 It can also be passed as an option in `engine.opts`.
 
-```{exec, engine.opts = list(command ='python')}
+```{exec}
+#| engine.opts: !expr list(command = "python")
 print(1 + 1)
 ```
 
@@ -84,14 +89,17 @@ input2 <- function(code, file) {
 }
 ```
 
-```{exec, engine.opts=list(command = 'python', input = input2)}
+```{exec}
+#| engine.opts: !expr list(command = "python", input = input2)
 print(1 + 1)
 ```
 
 You can also pass a string directly to input to change the name of the input
 file that will be passed to the command
 
-```{exec, command='python', engine.opts=list(input = "myfile.py")}
+```{exec}
+#| command: python
+#| engine.opts: !expr list(input = "myfile.py")
 print(1 + 1)
 ```
 
@@ -106,13 +114,15 @@ it.
 
 For example, this will ensure the tempfile has a `.R` extension.
 
-```{exec, engine.opts = list(command='Rscript', ext = 'R')}
+```{exec}
+#| engine.opts: !expr list(command = "Rscript", ext = "R")
 1 + 1
 ```
 
 It can be a function of the executable name (i.e `basename(command)`).
 
-```{r, include = FALSE}
+```{r}
+#| include: false
 ext_fun <- function(name) {
   if (grepl("Rscript", name)) return("R")
   if (grepl("python", name)) return("py")
@@ -120,7 +130,9 @@ ext_fun <- function(name) {
 }
 ```
 
-```{exec, command = 'python', engine.opts = list(ext = ext_fun)}
+```{exec}
+#| command: python
+#| engine.opts: !expr list(ext = ext_fun)
 print(1 + 1)
 ```
 
@@ -148,7 +160,8 @@ f_arg <- function(code, file) {
 }
 ```
 
-```{exec, engine.opts=list(command = 'python', args = f_arg)}
+```{exec}
+#| engine.opts: !expr list(command = "python", args = f_arg)
 print(1 + 1)
 ```
 
@@ -156,7 +169,8 @@ It can be combined with args1 to pass an argument before in the command line.
 For example, here passing `-x` to `python`, which will ignore the prepended
 line:
 
-```{exec, engine.opts=list(command = 'python', args1 = '-x', args = f_arg)}
+```{exec}
+#| engine.opts: !expr list(command = "python", args1 = "-x", args = f_arg)
 print(1 + 1)
 ```
 
@@ -165,16 +179,21 @@ execute a string.
 
 We are writing this content to `custom.py`
 
-```{cat, engine.opts = list(file = 'custom.py', lang = 'python')}
+```{cat}
+#| engine.opts: !expr list(file = "custom.py", lang = "python")
 print("Hello from a python file!")
 ```
 
 That we can execute using an empty `exec` engine chunk
 
-```{exec, command = 'python', engine.opts=list(args = 'custom.py'), echo = FALSE}
+```{exec}
+#| command: python
+#| engine.opts: !expr list(args = "custom.py")
+#| echo: false
 ```
 
-```{r, include = FALSE}
+```{r}
+#| include: false
 # clean the demo file
 unlink('custom.py')
 ```
@@ -182,7 +201,9 @@ unlink('custom.py')
 `args2` will be passed after. It could be useful if your code contains
 arguments, for example:
 
-```{exec, command = 'python', engine.opts=list(args2 = 'hello')}
+```{exec}
+#| command: python
+#| engine.opts: !expr list(args2 = "hello")
 import sys
 print('And the argument is: '+sys.argv[1])
 ```
@@ -192,7 +213,9 @@ print('And the argument is: '+sys.argv[1])
 By default, the temporary file will be removed. This option can be set to `NULL`
 to keep this file for example to debug.
 
-```{exec, command = 'python', engine.opts = list(clean = NULL)}
+```{exec}
+#| command: python
+#| engine.opts: !expr list(clean = NULL)
 print('This content can be read if you open the file left')
 ```
 
@@ -203,21 +226,27 @@ f1 <- list.files('.', pattern = "python.*\\.python")
 file.exists(f1)
 ```
 
-```{r, cleaning, include = FALSE}
+```{r}
+#| label: cleaning
+#| include: false
 if (length(f1) == 1) unlink(f1)
 ```
 
 It can be useful in addition to setting `input` option so that you can easily
 retrieve the file to re-run at command line yourself.
 
-```{exec, command='python', engine.opts = list(input='tmp-debug.py', clean=NULL)}
+```{exec}
+#| command: python
+#| engine.opts: !expr list(input = "tmp-debug.py", clean = NULL)
 print('This content can be rerun using `temp-debug.py` file')
 ```
 
 You can find the `tmp-debug.py` file in your working directory and which can
 help debug using command line by running `python tmp-debug.py` for example.
 
-```{r, cleaning2, include = FALSE}
+```{r}
+#| label: cleaning2
+#| include: false
 unlink('tmp-debug.py')
 ```
 
@@ -235,13 +264,17 @@ See the last section for an example of creating a `gcc` engine based on the
 
 Will output nothing
 
-```{exec, command = 'python', eval = FALSE}
+```{exec}
+#| command: python
+#| eval: false
 print(1 + 1)
 ```
 
 ## Error is caught
 
-```{exec, command = 'Rscript', error = TRUE}
+```{exec}
+#| command: Rscript
+#| error: true
 print(1 + "")
 ```
 
@@ -252,7 +285,8 @@ executable.
 
 Register the new `gcc` engine:
 
-```{r, tidy=FALSE}
+```{r}
+#| tidy: false
 knitr::knit_engines$set(gcc = function(options) {
   # set the command to gcc
   options$command = 'gcc'

@@ -4,7 +4,12 @@
 Of course, you can use a scale box on a table.
 
 \scalebox{0.7}{
-<<hmisc-table, echo=FALSE, message=FALSE, warning=FALSE, results='asis'>>=
+<<>>=
+#| label: hmisc-table
+#| echo: false
+#| message: false
+#| warning: false
+#| results: asis
 library(Hmisc)
 latex(head(iris), file='', table.env=FALSE, center='none')
 @

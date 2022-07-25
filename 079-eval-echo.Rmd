@@ -14,7 +14,9 @@ knit_hooks$set(source = function(x, options) {
 
 The trick is to mask the source code in special comments (e.g. `#'#'`), and remove the comment markers later. Of course, you have to guarantee these markers are unique.
 
-```{r test, echo=-3}
+```{r}
+#| label: test
+#| echo: !expr '-3'
 x=2
 #'#' 1/sqrt(2 * pi) * exp(-x^2/2)
 dnorm(x)

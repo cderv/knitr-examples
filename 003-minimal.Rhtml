@@ -29,7 +29,11 @@
   <p>We can also produce plots (centered by the
   option <code>fig.align='center'</code>):</p>
 
-<!--begin.rcode html-cars-scatter, message=FALSE, fig.align='center', warning=FALSE
+<!--begin.rcode 
+#| label: html-cars-scatter
+#| message: false
+#| fig.align: center
+#| warning: false
     library(ggplot2)
     plot(mpg~hp, mtcars)
     qplot(hp, mpg, data=mtcars)+geom_smooth()
@@ -47,12 +51,19 @@
   <p>In the end, let's show off a 3D plot from
   the <strong>rgl</strong> package.</p>
 
-<!--begin.rcode warning=FALSE
+<!--begin.rcode 
+#| warning: false
     library(rgl)
     knit_hooks$set(rgl = hook_rgl)  # set up the hook first
     end.rcode-->
 
-<!--begin.rcode fancy-rgl, rgl=TRUE, fig.align='center', fig.width=4, fig.height=4, warning=FALSE
+<!--begin.rcode 
+#| label: fancy-rgl
+#| rgl: true
+#| fig.align: center
+#| fig.width: 4.0
+#| fig.height: 4.0
+#| warning: false
     demo('bivar', package='rgl', echo=FALSE)
     par3d(zoom=.7)
     end.rcode-->

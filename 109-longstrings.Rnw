@@ -42,7 +42,9 @@
 This example shows how to shorten a long string by redefining the \verb|\hlstr|
 command. See \url{https://github.com/yihui/knitr/issues/681} for a discussion.
 
-<<stuff, eval=FALSE>>=
+<<>>=
+#| label: stuff
+#| eval: false
 download.file("http://AFDF43iuuinfsdasdf--AFDF43iuuinfsdasdf--AFDF43iuuinfsdasdf--AFDF43iuuinfsdasdf--AFDF43iuuinfsdasdf--AFDF43iuuinfsdasdf--AFDF43iuuinfsdasdf--AFDF43iuuinfsdasdf", "infsdasdf--#@%$AFDF43i.zip")
 @
 

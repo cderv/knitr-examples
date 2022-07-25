@@ -11,7 +11,8 @@ if (file.exists('everything.RData')) load('everything.RData')
 
 In the end of the document, you save the workspace:
 
-```{r eval=FALSE}
+```{r}
+#| eval: false
 save.image('everything.RData')
 ```
 
@@ -21,7 +22,9 @@ The function `load_cache()` is an alternative solution, which allows you to load
 
 For example, there is no object called `y` that has been created in this document yet, but we can still insert it here: ``r knitr::load_cache('test-a', 'y')``, as long as it will be created in the code chunk with the label `test-a` later.
 
-```{r test-a, cache=TRUE}
+```{r}
+#| label: test-a
+#| cache: true
 y = 2*pi
 ```
 

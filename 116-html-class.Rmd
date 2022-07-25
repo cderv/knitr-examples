@@ -13,13 +13,19 @@ Using R Markdown, the default behavior is to include the Bootstrap framework. Th
 
 For example, we are warned that the normal subsetting of a data frame can be type-unstable. To show this here,  the chunk options are set: `class.source = 'bg-warning', class.output = 'bg-warning'`.
 
-```{r df-drop, class.source='bg-warning', class.output='bg-warning'}
+```{r}
+#| label: df-drop
+#| class.source: bg-warning
+#| class.output: bg-warning
 mtcars[, "mpg"]
 ```
 
 To make sure that we return a data frame, we set the argument `drop = FALSE`. Here the chunk options are set: `class.source = 'bg-success', class.output = 'bg-success'`.
 
-```{r df-drop-ok, class.source='bg-success', class.output='bg-success'}
+```{r}
+#| label: df-drop-ok
+#| class.source: bg-success
+#| class.output: bg-success
 mtcars[, "mpg", drop=FALSE]
 ```
 
@@ -29,10 +35,13 @@ You may wish to set your own CSS -- **knitr** and **rmarkdown** make this easy f
 
 Note that for this example, only `class.source` is set.
 
-```{css echo=FALSE}
+```{css}
+/*| echo: false*/
 .bad-code { background-color: salmon; }
 ```
 
-```{r df-drop-2, class.source='bad-code'}
+```{r}
+#| label: df-drop-2
+#| class.source: bad-code
 mtcars[, "mpg"] 
 ```

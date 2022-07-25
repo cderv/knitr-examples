@@ -2,7 +2,8 @@
 
 First we redefine the output hook:
 
-```{r setup}
+```{r}
+#| label: setup
 library(knitr)
 # the default output hook
 hook_output = knit_hooks$get('output')
@@ -27,12 +28,14 @@ opts_chunk$set(out.lines = 4)
 
 Test the new output hook:
 
-```{r test-a}
+```{r}
+#| label: test-a
 1+1 # this is short
 ```
 
 The output of this chunk is truncated:
 
-```{r test-b}
+```{r}
+#| label: test-b
 1:100
 ```

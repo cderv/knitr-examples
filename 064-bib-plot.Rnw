@@ -4,7 +4,12 @@
 
 We cite \cite{lamport94} in this article.
 
-<<bib-plot, dev='tikz', external=FALSE, fig.height=3, fig.width=4>>=
+<<>>=
+#| label: bib-plot
+#| dev: tikz
+#| external: false
+#| fig.height: 3.0
+#| fig.width: 4.0
 par(mar = c(4.5, 4, .1, .1))
 plot(rnorm(100), xlab = 'See \\cite{lamport94} for details')
 @

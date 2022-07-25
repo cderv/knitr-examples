@@ -12,7 +12,8 @@ title: "Test strip.white"
 
 ## It can be opt out
 
-```{r, strip.white=FALSE}
+```{r}
+#| strip.white: false
 
 1 + 1
 
@@ -20,7 +21,8 @@ title: "Test strip.white"
 
 ## When collapse is TRUE, default is FALSE
 
-```{r, collapse = TRUE}
+```{r}
+#| collapse: true
 
 1 + 1
 
@@ -30,7 +32,9 @@ title: "Test strip.white"
 
 ## It can also be changed
 
-```{r, collapse = TRUE, strip.white = TRUE}
+```{r}
+#| collapse: true
+#| strip.white: true
 
 1 + 1
 

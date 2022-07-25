@@ -6,7 +6,9 @@
 \begin{document}
 \maketitle
 
-<<setup, include=FALSE>>=
+<<>>=
+#| label: setup
+#| include: false
 library(knitr)
 # in this document we mainly use results='asis', so set it globally
 opts_chunk$set(results='asis')
@@ -17,7 +19,8 @@ sophisticated packages (e.g. \textbf{xtable}, which has more than 30
 arguments), this function only has a minimal number of arguments to generate
 simple tables.
 
-<<test-a>>=
+<<>>=
+#| label: test-a
 library(knitr)
 kable(head(iris))
 kable(head(iris, 0))
@@ -26,13 +29,15 @@ kable(head(iris, 1))
 
 \section{No row names}
 
-<<test-b>>=
+<<>>=
+#| label: test-b
 kable(head(iris), row.names=FALSE)
 @
 
 \section{At most 3 digits}
 
-<<test-c>>=
+<<>>=
+#| label: test-c
 kable(matrix(rnorm(20),4), digits=3)
 @
 
@@ -41,7 +46,8 @@ kable(matrix(rnorm(20),4), digits=3)
 By default, numeric columns are right-aligned, and other columns are
 left-aligned.
 
-<<test-d>>=
+<<>>=
+#| label: test-d
 kable(head(iris), align=c('l', 'c', 'r', 'l', 'r'))
 @
 
@@ -49,7 +55,8 @@ kable(head(iris), align=c('l', 'c', 'r', 'l', 'r'))
 
 Let's use the \textbf{booktabs} package. The air is suddenly fresh!
 
-<<test-e>>=
+<<>>=
+#| label: test-e
 kable(head(iris), row.names=FALSE, booktabs=TRUE)
 kable(head(iris, 0), row.names=FALSE, booktabs=TRUE)
 kable(head(iris, 1), row.names=FALSE, booktabs=TRUE)
@@ -58,7 +65,8 @@ kable(head(mtcars[, 1:7]), booktabs=TRUE)
 
 \section{Long tables}
 
-<<test-f>>=
+<<>>=
+#| label: test-f
 kable(mtcars[, 1:7], longtable=TRUE, booktabs=TRUE)
 @
 

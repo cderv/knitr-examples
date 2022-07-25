@@ -1,17 +1,27 @@
 \documentclass{article}
 \begin{document}
-<<setup, include=FALSE>>=
+<<>>=
+#| label: setup
+#| include: false
 library(knitr)
 knit_hooks$set(crop = hook_pdfcrop)
 @
 
 Cropped.
-<<test-a, crop=TRUE, fig.width=3, fig.height=3, cache=TRUE>>=
+<<>>=
+#| label: test-a
+#| crop: true
+#| fig.width: 3.0
+#| fig.height: 3.0
+#| cache: true
 plot(1)
 @
 
 Not cropped.
-<<test-b, fig.width=3, fig.height=3>>=
+<<>>=
+#| label: test-b
+#| fig.width: 3.0
+#| fig.height: 3.0
 plot(1)
 @
 \end{document}

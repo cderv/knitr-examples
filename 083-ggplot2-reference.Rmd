@@ -4,14 +4,19 @@ You may have your own layout code like [this one](http://stackoverflow.com/q/148
 
 We simplify the layout code in the original post and put it in a code chunk named `my-layout`:
 
-```{r my-layout, eval=FALSE}
+```{r}
+#| label: my-layout
+#| eval: false
 theme (legend.text = element_text(size = 12, angle=45))+
   theme (legend.position = "bottom")
 ```
 
 Now we can use `<<>>` to reference it.
 
-```{r test-a, message=FALSE, warning=FALSE}
+```{r}
+#| label: test-a
+#| message: false
+#| warning: false
 library(ggplot2)
 qplot(carat, price, data=diamonds, color=cut)+
   <<my-layout>>
@@ -19,7 +24,9 @@ qplot(carat, price, data=diamonds, color=cut)+
 
 Another test:
 
-```{r test-b, message=FALSE}
+```{r}
+#| label: test-b
+#| message: false
 qplot(carat, data=diamonds, fill=cut)+
   <<my-layout>>
 ```

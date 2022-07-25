@@ -8,7 +8,9 @@ Sys.which('sh')
 
 Does `bash` work?
 
-```{r test-bash, engine='bash'}
+```{r}
+#| label: test-bash
+#| engine: bash
 echo hello world
 echo 'a b c' | sed 's/ /\|/g'
 # number of lines
@@ -17,7 +19,9 @@ awk 'END{print NR;}' 027-engine-bash.Rmd
 
 How about `sh`?
 
-```{r test-sh, engine='sh'}
+```{r}
+#| label: test-sh
+#| engine: sh
 # run wc on all engine examples
 wc 027-engine-bash.Rmd
 ```

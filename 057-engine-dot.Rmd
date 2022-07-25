@@ -2,7 +2,11 @@
 
 A `dot`-example taken from the man-pages. You need to install the `graphviz` package.
 
-```{r dot-ex, engine = "dot", fig.cap = "Funky dot", cache=TRUE}
+```{r}
+#| label: dot-ex
+#| engine: dot
+#| fig.cap: Funky dot
+#| cache: true
 digraph test123 {
   a -> b -> c;
   a -> {x y};

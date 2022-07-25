@@ -3,7 +3,9 @@
 
 Collect results from the template for each i and write them back later.
 
-<<run-all, include=FALSE>>=
+<<>>=
+#| label: run-all
+#| include: false
 library(knitr)
 src <- NULL
 for (i in 1:3) {

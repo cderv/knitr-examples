@@ -1,6 +1,8 @@
 \documentclass{article}
 \usepackage{url}
-<<setup, include=FALSE>>=
+<<>>=
+#| label: setup
+#| include: false
 options(width=60)
 # an old solution by @r2d3 was at https://github.com/yihui/knitr/issues/210
 # but since knitr 0.9, we can do it through the chunk option tidy.opts
@@ -9,22 +11,28 @@ options(width=60)
 
 the value of $\pi$ is \Sexpr{pi}, and the function to read a table is \Sexpr{'read.table()'}.
 
-<<test2>>=
+<<>>=
+#| label: test2
 rnorm(10)
 @
-<<test, tidy.opts=list(width.cutoff=30)>>=
+<<>>=
+#| label: test
+#| tidy.opts: !expr list(width.cutoff = 30)
 getOption('width')
 x=1+1+1+1+1+1+1+1+1+1+1+1+1+1+1+1+1+1+1+1+1+1+1+1+1+1+1+1+1+1+1+1+1+1+1+1+1+1+1+1+1+1+1+1+1+1+1+1+1+1
 @
 % use default global width
-<<another-test>>=
+<<>>=
+#| label: another-test
 getOption('width')
 x=1+1+1+1+1+1+1+1+1+1+1+1+1+1+1+1+1+1+1+1+1+1+1+1+1+1+1+1+1+1+1+1+1+1+1+1+1+1+1+1+1+1+1+1+1+1+1+1+1+1
 @
 
 You can also tell knitr not to touch your source code using the chunk option tidy=FALSE, so that you can format the source code in any way you want:
 
-<<tidy-test, tidy=FALSE>>=
+<<>>=
+#| label: tidy-test
+#| tidy: false
 1 + 1 +
   1+1+
   1
@@ -36,7 +44,8 @@ f = function() {
 
 Compare the above chunk to the default behavior (tidy=TRUE):
 
-<<tidy-test>>=
+<<>>=
+#| label: tidy-test
 @
 
 I only mentioned how to control the width of source code. For the width of output, it is much trickier; see \url{http://yihui.org/knitr/demo/output/}.

@@ -2,16 +2,21 @@
 
 \begin{document}
 
-<<controller>>=
+<<>>=
+#| label: controller
 # this variable controls if a chunk should be evaluated
 dothis <- TRUE
 @
 
-<<chunk1, eval = dothis>>=
+<<>>=
+#| label: chunk1
+#| eval: !expr dothis
 print('say hello world')
 @
 
-<<chunk2, eval = !dothis>>=
+<<>>=
+#| label: chunk2
+#| eval: !expr '!dothis'
 print('silence is gold')
 @
 

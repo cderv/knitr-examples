@@ -4,7 +4,8 @@ First, the input file was named as `knitr-upload.Rmd` ([source](https://github.c
 
 I used the code below to make sure **knitr** will upload images and set some global chunk options.
 
-```{r setup}
+```{r}
+#| label: setup
 library(knitr)
 opts_knit$set(upload.fun = imgur_upload, base.url = NULL) # upload all images to imgur.com
 opts_chunk$set(fig.width=5, fig.height=5, cache=TRUE)
@@ -22,7 +23,9 @@ rnorm(5)
 
 We can also produce plots which are uploaded to imgur.com:
 
-```{r md-cars, message=FALSE}
+```{r}
+#| label: md-cars
+#| message: false
 par(mar = c(4, 4, .1, .1))
 plot(mpg~hp, data=mtcars, pch=19)
 par(mar = c(3, 2, .1, .1))

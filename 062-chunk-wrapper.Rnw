@@ -1,7 +1,8 @@
 \documentclass{article}
 \usepackage{url}
 \begin{document}
-<<setup>>=
+<<>>=
+#| label: setup
 library(knitr)
 knit_hooks$set(wrapper = function(before, options, envir) {
   sprintf('\\begin{alltt}%s\n\\end{alltt}',
@@ -11,7 +12,10 @@ knit_hooks$set(wrapper = function(before, options, envir) {
 
 I want to display \verb|<<>>=| in the output since I'm writing a tutorial:
 
-<<test_label, wrapper=TRUE, eval=FALSE>>=
+<<>>=
+#| label: test_label
+#| wrapper: true
+#| eval: false
 1+1
 plot(1)
 @

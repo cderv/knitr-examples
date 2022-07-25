@@ -2,7 +2,9 @@
 % Yihui Xie
 % 2012/04/30
 
-```{r setup, include=FALSE}
+```{r}
+#| label: setup
+#| include: false
 # set global chunk options
 library(knitr)
 opts_chunk$set(cache=TRUE)
@@ -18,14 +20,21 @@ opts_chunk$set(cache=TRUE)
 
 # A bit R code
 
-```{r computing}
+```{r}
+#| label: computing
 head(cars)
 cor(cars)
 ```
 
 # Graphics too
 
-```{r graphics, message=FALSE, fig.cap='A scatterplot of `cars`', fig.width=11, fig.height=5, warning=FALSE}
+```{r}
+#| label: graphics
+#| message: false
+#| fig.cap: A scatterplot of `cars`
+#| fig.width: 11.0
+#| fig.height: 5.0
+#| warning: false
 library(ggplot2)
 qplot(speed, dist, data = cars) + geom_smooth()
 ```
@@ -56,7 +65,8 @@ qplot(speed, dist, data = cars) + geom_smooth()
 
 It is good to include the session info, e.g. this document is produced with **knitr**. Here is my session info:
 
-```{r session-info}
+```{r}
+#| label: session-info
 print(sessionInfo(), locale=FALSE)
 ```
 

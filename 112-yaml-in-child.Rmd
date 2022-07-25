@@ -9,5 +9,6 @@ This is the parent, and it includes a child that also has YAML front matter
 from `rmarkdown`.
 
 
-```{r child="112-yaml-in-child-child.rmd"}
+```{r}
+#| child: 112-yaml-in-child-child.rmd
 ```

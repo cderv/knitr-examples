@@ -1,12 +1,17 @@
 \documentclass{article}
 
 \begin{document}
-<<setup, include=FALSE>>=
+<<>>=
+#| label: setup
+#| include: false
 options(xtable.comment = FALSE)
 @
 \section*{Multiplication table}
 
-<<multiplication-table, echo = FALSE, results = 'asis'>>=  
+<<>>=  
+#| label: multiplication-table
+#| echo: false
+#| results: asis
 library(xtable)
 mt <- outer(1:9, 1:9, function(x, y) x *y)
 xtable(mt, align="|c|ccccccccc|")
@@ -14,7 +19,10 @@ xtable(mt, align="|c|ccccccccc|")
 
 \section*{Embedded \LaTeX}
 
-<<embedded-latex, echo = FALSE, results = 'asis'>>=  
+<<>>=  
+#| label: embedded-latex
+#| echo: false
+#| results: asis
 el <- matrix(rep(1, 9), ncol=3)
 colnames(el) <- rownames(el) <- c("$\\alpha$", "$\\beta$", "$\\gamma$")
 el[1,1] <- "$\\alpha^2$"
@@ -27,7 +35,10 @@ print(xtable(el), sanitize.text.function = function(x){x})
 @
 
 \section*{Names}
-<<names, echo = FALSE, results = 'asis'>>=  
+<<>>=  
+#| label: names
+#| echo: false
+#| results: asis
 print(xtable(head(iris)), include.rownames=FALSE)
 @
 

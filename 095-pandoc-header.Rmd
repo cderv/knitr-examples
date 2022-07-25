@@ -19,12 +19,18 @@ This first chunk creates the extra lines for the latex header. We use the
 `engine.opts` option. This file will be passed to `pandoc` via the
 `--include-in-header` (or `-H`) option.
 
-```{r prelim, engine='cat', engine.opts=list(file='095-pandoc.sty')}
+```{r}
+#| label: prelim
+#| engine: cat
+#| engine.opts: !expr list(file = "095-pandoc.sty")
 % Extra header text for latex
 \usepackage{mathpazo}
 \usepackage[a4paper,margin=2cm]{geometry}
 ```
-```{r prelim2, engine='cat', engine.opts=list(file='095-pandoc.sty', append=TRUE)}
+```{r}
+#| label: prelim2
+#| engine: cat
+#| engine.opts: !expr list(file = "095-pandoc.sty", append = TRUE)
 % use append=TRUE for cat() to append to an existing file
 ```
 
@@ -38,7 +44,9 @@ We can then do some simple R math.
 # About this document
 
 To compile this document in R:
-```{r compiling, eval=FALSE}
+```{r}
+#| label: compiling
+#| eval: false
 library(knitr)
 knit('095-pandoc-header.Rmd')
 pandoc('095-pandoc-header', format='latex')

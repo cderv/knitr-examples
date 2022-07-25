@@ -11,7 +11,8 @@ Here is a paragraph outside the multicols environment. Here is a paragraph outsi
 \begin{multicols}{2}
 Here is a paragraph inside the multicols environment. Here is a paragraph inside the multicols environment.
 
-<<test>>=
+<<>>=
+#| label: test
 1+1
 2*pi*10
 par(mar=c(4, 4, .1, .1))
